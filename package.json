@@ -1,0 +1,27 @@
+{
+  "name": "pjs",
+  "version": "0.1.0",
+  "description": "PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atinux/pjs.git"
+  },
+  "keywords": [
+    "pjs",
+    "apache",
+    "php",
+    "js",
+    "ejs",
+    "worflow"
+  ],
+  "author": "Sebastien Chopin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Atinux/pjs/issues"
+  },
+  "homepage": "https://github.com/Atinux/pjs#readme"
+}
