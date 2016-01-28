@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var fs = require('fs');
+var path = require('path');
+program.parse(process.argv);
+
+var folder = program.args[0] || './';
+var res;
+try { res = fs.lstatSync(folder) } catch (e) { res = null; }
+if (!res || !res.isDirectory())
+  return console.log(folder + ' is not a folder.');
+
+var _PATH_ = path.join(process.cwd(), folder);
+console.log('Starting PJS server on ' + _PATH_);

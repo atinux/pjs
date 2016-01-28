@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require('commander')
+.version(require('../package').version)
+.usage('<command> [options]')
+.command('start [folder]', 'Launch pjs with the given folder (default ./)', { isDefault: true })
+// .command('forever [folder]', 'Launch pjs with forever as a daemon (useful for web-server)')
+.parse(process.argv);

@@ -1,10 +1,14 @@
 {
-  "name": "pjs",
-  "version": "0.1.0",
+  "name": "node-pjs",
+  "version": "0.1.1",
   "description": "PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)",
-  "main": "app.js",
+  "preferGlobal": true,
+  "main": "bin/pjs",
+  "bin": {
+    "pjs": "bin/pjs"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/Atinux/pjs/issues"
   },
-  "homepage": "https://github.com/Atinux/pjs#readme"
+  "homepage": "https://github.com/Atinux/pjs#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }
