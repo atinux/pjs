@@ -1,7 +1,7 @@
 # pjs
-PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)
+PJS = PHP Workflow with Node.js (or using a FTP for coding with node.js)
 
-This module is very useful for quick prototyping.
+This module is aim for quick prototyping.
 
 ## Installation
 
@@ -15,10 +15,6 @@ By default, the folder is ./ and the port is 8080.
 
 Then, in the folder, it's like your www/ folder with Apache, but instead of .php, it's .pjs.
 
-## What is .pjs ?
-
-This extension is used for the template, it's really simple, it's 90% of EJS templating + a function for making everything asynchronous.
-
 ## Examples
 
 To launch the examples on your computer, install first pjs and then :
@@ -30,6 +26,10 @@ pjs examples/
 ```
 
 You can visit `http://localhost:8080` too run all the examples presented below.
+
+## What are these .pjs files ?
+
+It's 90% of EJS templates with a `done()` method for making every asynchronous operations possible! (take a look at the examples #2)
 
 ## Example 1 - Basis
 
@@ -161,4 +161,5 @@ PJS use [session-file-store](https://github.com/valery-barysok/session-file-stor
 ## About PJS
 
 As said before, PJS is mostly for quick prototyping and has no use case for production.
-The idea is born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
+
+The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
