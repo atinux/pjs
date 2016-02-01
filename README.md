@@ -3,6 +3,8 @@ PJS = PHP Workflow with Node.js (or using a FTP for coding with node.js)
 
 This module is aim for quick prototyping.
 
+[![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
+
 ## Installation
 
 `npm install -g pjs-cli`
