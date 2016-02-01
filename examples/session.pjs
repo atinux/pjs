@@ -1,0 +1,20 @@
+<%
+SESSION.todos = SESSION.todos || [];
+if (REQUEST.method === 'POST' && REQUEST.body.todo) {
+  SESSION.todos.push(REQUEST.body.todo);
+}
+if (REQUEST.method === 'GET' && REQUEST.query.index) {
+  SESSION.todos = SESSION.todos.filter(function (todo, index) {
+    return index !== Number(REQUEST.query.index);
+  });
+}
+%>
+<form method="post">
+  <input type="text" name="todo" placeholder="Learn Piano..." />
+  <button type="submit">Add todo</button>
+</form>
+<ul>
+  <% SESSION.todos.forEach(function (todo, index) { %>
+    <li><%= todo %> - <a href="?index=<%- index %>">x</a></li>
+  <% }); %>
+</ul>

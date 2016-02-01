@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var fs = require('fs');
-var path = require('path');
+var program = require('commander'),
+    fs = require('fs'),
+    path = require('path'),
+    server = require('../lib/server'),
+    dir,
+    lstat;
+
+program.usage('[dir] [options]')
+program.option('-p, --port <port>', 'Port where the PJS will listen')
 program.parse(process.argv);
+dir = program.args[0] || './';
+try { lstat = fs.lstatSync(dir) } catch (e) { lstat = null; }
+if (!lstat || !lstat.isDirectory())
+  return console.log(folder + ' is not a directory.');
 
-var folder = program.args[0] || './';
-var res;
-try { res = fs.lstatSync(folder) } catch (e) { res = null; }
-if (!res || !res.isDirectory())
-  return console.log(folder + ' is not a folder.');
-
-var _PATH_ = path.join(process.cwd(), folder);
-console.log('Starting PJS server on ' + _PATH_);
+server(path.join(process.cwd(), dir), program.port);

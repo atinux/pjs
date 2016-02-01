@@ -1,0 +1,7 @@
+<% if (REQUEST.method === 'POST') { %>
+  <p><b>New todo:</b> <%= REQUEST.body.todo %></p>
+<% } %>
+<form method="post">
+  <input type="text" name="todo" placeholder="Learn Piano..." />
+  <button type="submit">Add todo</button>
+</form>
