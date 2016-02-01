@@ -63,6 +63,8 @@ request.get('http://www.mocky.io/v2/56af5cec1100004516f9bc90', function (err, re
 Hello <%= name %>!
 ```
 
+As you can see, I can require a module, for that, please make sure to run `npm install request` in the current directory before visiting `http://localhost:8080/async.pjs`
+
 The result will be : Hello PJS!
 
 Notice the `done();` method, it is important here for PJS to wait until the request is completed and the `name` set before going further in the template.
