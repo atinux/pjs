@@ -204,12 +204,43 @@ Try to visit `http://localhost:8080/json?foo=bar&why=not`
 
 *As you can see in the url, the `.jps` is optional.*
 
+## Example 8 - Files
+
+PJS let you upload files via [multer](https://github.com/expressjs/multer). The maximum number of files is 10 and each file size 5 MB. The files are stored in the /tmp folder and are automatically deleted when the page is rendered.
+
+You can access the files via `REQUEST.files`. Important, the form as to be multipart (`multipart/form-data`).
+
+File `files.pjs`:
+```html
+<% if (METHOD === 'POST' && REQ.files) { %>
+<pre><%- JSON.stringify(REQ.files, undefined, 2) %></pre>
+<% } %>
+<form method="post" enctype="multipart/form-data">
+  <p>File: <input type="file" name="file" /></p>
+  <button type="submit">Upload</button>
+</form>
+```
+
+You can go on `http://localhost:8080/files.pjs`, choose a file and click Upload, you will see all the data inside `REQUEST.files`.
+
+Example:
+```json
+[
+  {
+    "fieldname": "file",
+    "originalname": "pjs-image.jpg",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "destination": "/tmp",
+    "filename": "b52fb2303738fa17c0a2c8593de76798",
+    "path": "/tmp/b52fb2303738fa17c0a2c8593de76798",
+    "size": 71448
+  }
+]
+```
+
 ## About PJS
 
 As said before, PJS is mostly for quick prototyping and has no use case for production.
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
-
-## Todos
-
-- File upload (req.files)

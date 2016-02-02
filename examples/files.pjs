@@ -1,0 +1,7 @@
+<% if (METHOD === 'POST' && REQ.files) { %>
+<pre><%- JSON.stringify(REQ.files, undefined, 2) %></pre>
+<% } %>
+<form method="post" enctype="multipart/form-data">
+  <p>File: <input type="file" name="file" /></p>
+  <button type="submit">Upload</button>
+</form>
