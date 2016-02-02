@@ -167,3 +167,7 @@ PJS use [session-file-store](https://github.com/valery-barysok/session-file-stor
 As said before, PJS is mostly for quick prototyping and has no use case for production.
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
+
+## Todo
+
+- Add RESPONSE.setHeader() method to be able to render some JSON by example (for creating a pseudo API with files)
