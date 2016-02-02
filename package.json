@@ -1,6 +1,6 @@
 {
   "name": "pjs-cli",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)",
   "preferGlobal": true,
   "main": "bin/pjs",
