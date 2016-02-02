@@ -1,0 +1,14 @@
+<%
+SESSION.projects = SESSION.projects || {};
+var projects = SESSION.projects;
+if (METHOD === 'POST' && FORM.name) {
+  projects[String(Date.now())] = FORM.name;
+}
+if (METHOD === 'PUT' && FORM.id && FORM.name && projects[FORM.id]) {
+  projects[FORM.id] = FORM.name;
+}
+if (METHOD === 'DELETE' && FORM.id && projects[FORM.id]) {
+  delete projects[FORM.id];
+}
+%>
+<%- projects %>

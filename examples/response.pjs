@@ -1,0 +1,6 @@
+<%
+RESPONSE.header('Custom', 'Hi!');
+RESPONSE.status(404);
+RESPONSE.type('text');
+%>
+I'm a page with a custom status code and header!

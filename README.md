@@ -127,6 +127,12 @@ List of the properties available in REQUEST:
 - xhr
 </pre>
 
+### Aliases
+
+- `REQ` is equal to `REQUEST`.
+- `FORM` which is `REQ.body` merge into `REQ.query`
+- `METHOD` is equal to `REQUEST.method`
+
 ## Example 5 - SESSION
 
 In your PJS templates, you have also access to `SESSION`. This is useful for creating small apps for prototyping.
@@ -162,8 +168,48 @@ Go to `http://localhost:8080/session.pjs` to se it working.
 `SESSION` is equivalent of `req.session` in Express.
 PJS use [session-file-store](https://github.com/valery-barysok/session-file-store) to persist the sessions in files, so you can restart `pjs` without worrying about the sessions.
 
+## Example 6 - RESPONSE
+
+Sometimes you want to send back a custom status code or even a custom header. You can use the `RESPONSE` (alias: `RES`) object for this, here the current method available:
+<pre>
+- .status(code) // Set the HTTP status for the response
+- .header(field [, value]) // Same as res.set() for Express
+- .type(type) // Same as res.type() for Express
+</pre>
+
+File `response.pjs`:
+```html
+<%
+RESPONSE.header('Custom', 'Hi!');
+RESPONSE.status(404);
+RESPONSE.type('text');
+%>
+I'm a page with a custom status code and header!
+```
+
+If you go on `http://localhost:8080/response.pjs` with POSTMAN, you will see the status code 404 with the custom header and the Content-Type set to plain/text.
+
+## Example 7 - JSON
+
+For sending back a JSON object, simply display it with <%- yourJSON %>.
+
+File `json.pjs`:
+```html
+<%- FORM %>
+```
+
+`FORM` is an alias of `REQ.body` merged into `REQ.query`.
+
+Try to visit `http://localhost:8080/json?foo=bar&why=not`
+
+*As you can see in the url, the `.jps` is optional.*
+
 ## About PJS
 
 As said before, PJS is mostly for quick prototyping and has no use case for production.
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
+
+## Todos
+
+- File upload (req.files)
