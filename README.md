@@ -244,7 +244,8 @@ The idea was born after reading this article by VJEUX: http://blog.vjeux.com/201
 
 ## Todo
 - Clean pjs-engine.js file (render() async)
-- UI for configuring PJS (url/_config): Authentification, Server (default port, proxy, SSL), Upload (nbFiles, fileSize, folder), Sessions, Sockets (enable/disable + socket config file), Errors Handler (Sentry, etc.)
+- Add tests (start server on test/pjs/ + call request and check source code)
+- UI for configuring PJS (url/_config): Authentification, Server (default port, proxy, SSL), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (Sentry, etc.)
 - UI for configuring the Routes (url/_routes): Router /api/users/:id -> render file api/users.pjs + add req.params inside REQ + FORM
 - UI for configuring the Node modules (url/_npm): Listing installed modules, Install/Update/Remove (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
 - UI for uploading files directly to the server and editing them (url/_files)
