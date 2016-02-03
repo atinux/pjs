@@ -8,9 +8,9 @@
 
 ## Usage
 
-`pjs <folder> -p <port>`
+`pjs <folder>`
 
-By default, the folder is ./ and the port is 8080 (or process.env.PORT is defined).
+By default, the folder is ./ and the port is 8080 (or process.env.PORT if defined).
 
 Inside the folder where pjs is listening you can prototype any node.js applications thanks to the `.pjs` files (see examples).
 
