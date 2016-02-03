@@ -1,7 +1,4 @@
-# pjs
-
-Quick Prototyping tool for Node.js: launch the pjs cli on your server and never worry about restarting your node.js application. You can use your favorite FTP app if you want to update your node.js application, same as PHP!
-
+![pjs logo](https://cloud.githubusercontent.com/assets/904724/12781194/25ffcc5c-ca73-11e5-8f34-7e8c7c7f6b09.png)
 
 [![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
 
@@ -13,13 +10,13 @@ Quick Prototyping tool for Node.js: launch the pjs cli on your server and never 
 
 `pjs <folder> -p <port>`
 
-By default, the folder is ./ and the port is 8080.
+By default, the folder is ./ and the port is 8080 (or process.env.PORT is defined).
 
-Then, in the folder, it's like your www/ folder with Apache, but instead of .php, it's .pjs.
+Inside the folder where pjs is listening you can prototype any node.js applications thanks to the `.pjs` files (see examples).
 
 ## Examples
 
-To launch the examples on your computer, install first pjs and then :
+To launch the examples on your computer, install first pjs-cli and then :
 
 ```bash
 git clone https://github.com/Atinux/pjs.git
@@ -245,8 +242,10 @@ As said before, PJS is mostly for quick prototyping and has no use case for prod
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
 
-
 ## Todo
-- UI for configuring PJS (url/_config): Authentification, Server (port), Upload (fileSize, folder), Sessions, Node modules Install/Updates/Removal (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
-- UI for uploading files directly to the server and editing them
+- UI for configuring PJS (url/_config): Authentification, Server (default port, proxy, SSL), Upload (nbFiles, fileSize, folder), Sessions, Sockets (enable/disable + socket config file), Errors Handler (Sentry, etc.)
+- UI for configuring the Routes (url/_routes): Router /api/users/:id -> render file api/users.pjs + add req.params inside REQ + FORM
+- UI for configuring the Node modules (url/_npm): Listing installed modules, Install/Update/Remove (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
+- UI for uploading files directly to the server and editing them (url/_files)
 - Video of presentation
+- Finding a way of using the sockets and configuring them server-side (path of the file to use) + try/catch to avoid server error on startup
