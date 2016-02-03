@@ -1,7 +1,7 @@
 # pjs
-PJS = PHP Workflow with Node.js (or using a FTP for coding with node.js)
 
-This module is aim for quick prototyping.
+Quick Prototyping tool for Node.js: launch the pjs cli on your server and never worry about restarting your node.js application. You can use your favorite FTP app if you want to update your node.js application, same as PHP!
+
 
 [![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
 
@@ -244,3 +244,9 @@ Example:
 As said before, PJS is mostly for quick prototyping and has no use case for production.
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
+
+
+## Todo
+- UI for configuring PJS (url/_config): Authentification, Server (port), Upload (fileSize, folder), Sessions, Node modules Install/Updates/Removal (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
+- UI for uploading files directly to the server and editing them
+- Video of presentation
