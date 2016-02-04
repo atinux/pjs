@@ -250,9 +250,10 @@ The idea was born after reading this article by VJEUX: http://blog.vjeux.com/201
 - Config WinstonJS log system
 - Add tests + jslint (start server on test/pjs/ + call request and check source code) + Travis + Codecov.io + Bithound (dependencies + code) + IssueStats.com
 - Central UI (only links to the modules): url/_ + Add basic auth on _ and _/*
-- UI for configuring PJS (url/_/config): Authentification, Server (default port, proxy, SSL, folder for public views), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (Winstog log files, Sentry config, etc.)
+- UI for configuring PJS (url/_/config): Authentification, Server (default port, proxy, SSL, folder for public views + for each vhost), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (Winstog log files, Sentry config, etc.)
 - UI for configuring the Routes (url/_/routes): Router /api/users/:id -> render file api/users.pjs + add req.params inside REQ + FORM
 - UI for configuring the Node modules (url/_/npm): Listing installed modules, Install/Update/Remove (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
 - UI for viewing/searching the logs (url/_/logs)
+- config.json have a lastUpdate field to know on the ping when the recluster has reloaded
 - Finding a way of using the sockets and configuring them server-side (path of the file to use) + try/catch to avoid server error on startup
 - Video of presentation
