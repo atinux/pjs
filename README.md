@@ -34,7 +34,7 @@ It's 90% of EJS templates with a `done()` method for making every asynchronous o
 
 Let's say that I have a file name `hello.pjs` in my current folder:
 ```html
-<% var foo = 'bar'; %>
+<% var foo = 'PJS'; %>
 Hello <%= foo %>!
 ```
 
@@ -42,7 +42,7 @@ I launch the cli in my current folder: `pjs`
 
 Then, I visit : `http://localhost:8080/hello.pjs`
 
-Result: Hello bar!
+Result: Hello PJS!
 
 ## Example 2 - Asynchronous
 
