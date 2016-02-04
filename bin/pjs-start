@@ -3,7 +3,8 @@
 var program = require('commander'),
     fs = require('fs'),
     path = require('path'),
-    server = require('../lib/server'),
+    recluster = require('recluster'),
+    _ = require('lodash'),
     dir,
     lstat;
 
@@ -15,4 +16,66 @@ try { lstat = fs.lstatSync(dir) } catch (e) { lstat = null; }
 if (!lstat || !lstat.isDirectory())
   return console.log(folder + ' is not a directory.');
 
-server(path.join(process.cwd(), dir), program.port);
+var args = [ dir ];
+if (program.port) args.push(program.port);
+var cluster = recluster(path.join(__dirname, '../lib/server.js'), { args: args, timeout: 3, backoff: 0 }); // workers: 10
+cluster.run();
+
+var reloading = false;
+var pings = {};
+var reloadCluster = function () {
+  if (reloading) return;
+  reloading = true;
+  cluster.reload(function () {
+    reloading = false;
+    pings = {};
+    listenWorkers();
+  });
+};
+var listenWorkers = function () {
+  console.log('Nb workers:', cluster.workers().length, 'Active:', cluster.activeWorkers().length);
+  cluster.workers().forEach(function (worker) {
+    if (worker._rc_isReplaced) return;
+    // console.log('Worker:', worker._rc_wid, 'Listening:', worker._listening);
+    if (worker._listening) return;
+    worker.on('message', function (msg) {
+      // console.log('New message from worker ['+worker._rc_wid+']');
+      // console.log(msg);
+      if (msg && msg.cluster_cmd && msg.cluster_cmd === 'reload') {
+        reloadCluster();
+      }
+      if (msg && msg.ping) {
+        pings[worker._rc_wid] = Date.now();
+      }
+    });
+    worker.process.on('exit', function () {
+      pings[worker._rc_wid] = 'reload';
+    });
+    worker._listening = true;
+  });
+};
+var findWorker = function (worderId) {
+  var _worker = null;
+  cluster.workers().forEach(function (worker) {
+    if (String(worker._rc_wid) === String(worderId))
+      _worker = worker;
+  });
+  return _worker;
+};
+var checkTimeoutWorker = function () {
+  // console.log(pings, cluster.workers().length, cluster.activeWorkers().length);
+  if (_.values(pings).indexOf('reload') !== -1)
+    return listenWorkers();
+  for (var workerId in pings) {
+    if ((pings[workerId] + 10000) <= Date.now()) {
+      var worker = findWorker(workerId);
+      if (worker) {
+        console.log('Worker ['+workerId+'] timeout! PID:', worker.process.pid);
+        worker.process.kill();
+      }
+    }
+  }
+};
+
+listenWorkers();
+setInterval(checkTimeoutWorker, 2000);

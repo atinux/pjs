@@ -1,6 +1,6 @@
 {
   "name": "pjs-cli",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)",
   "preferGlobal": true,
   "main": "bin/pjs",
@@ -33,8 +33,10 @@
     "commander": "^2.9.0",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "lodash": "^4.2.1",
     "method-override": "^2.3.5",
     "multer": "^1.1.0",
+    "recluster": "^0.4.5",
     "serve-index": "^1.7.3",
     "serve-static": "^1.10.2",
     "session-file-store": "0.0.24",

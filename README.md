@@ -244,7 +244,6 @@ The idea was born after reading this article by VJEUX: http://blog.vjeux.com/201
 
 ## Todo
 - Clean pjs-engine.js file (render() async)
-- Using recluster module for hot-reloading
 - Using daemonize for `pjs forever <folder>`
 - Add tests (start server on test/pjs/ + call request and check source code)
 - UI for configuring PJS (url/_config): Authentification, Server (default port, proxy, SSL, folder for public views), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (checkbox only on production, Sentry config, etc.)
