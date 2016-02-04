@@ -1,7 +1,7 @@
 ## Hello PJS
 
 Let's look at the examples/hello.pjs file:
-```html
+```js
 <% var foo = 'PJS'; %>
 Hello <%= foo %>!
 ```
