@@ -49,6 +49,7 @@ var listenWorkers = function () {
       }
     });
     worker.process.on('exit', function () {
+      // console.log('Woker ['+worker._rc_wid+'] exited.');
       pings[worker._rc_wid] = 'reload';
     });
     worker._listening = true;

@@ -1,0 +1,7 @@
+<%
+setTimeout(function () {
+  error;
+  done();
+}, 1000);
+%>
+Async Error Test.
