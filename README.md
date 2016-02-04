@@ -243,7 +243,7 @@ As said before, PJS is mostly for quick prototyping and has no use case for prod
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
 
 ## Todo
-- Clean pjs-engine.js file (render() async)
+- Clean pjs-engine.js file (render() async) + use [async-trycatch](https://github.com/CrabDude/trycatch) for PJS templating (examples/specials/async-error.pjs)
 - Using daemonize for `pjs forever <folder>`
 - Add tests (start server on test/pjs/ + call request and check source code)
 - UI for configuring PJS (url/_config): Authentification, Server (default port, proxy, SSL, folder for public views), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (checkbox only on production, Sentry config, etc.)
