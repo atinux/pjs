@@ -1,9 +1,8 @@
 <%
-var request = require('request'),
-    name;
-request.get('http://www.mocky.io/v2/56af5cec1100004516f9bc90', function (err, res, body) {
-  name = JSON.parse(body).name;
-  done();
-});
+var foo = 'bar';
+setTimeout(function () {
+  foo = 'PJS';
+  done(); // tell PJS it's an async block
+}, 100);
 %>
-Hello <%= name %>!
+Hello <%= foo %>!

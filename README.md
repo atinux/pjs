@@ -8,11 +8,11 @@
 
 ## Usage
 
-`pjs <folder>`
+`pjs`
 
-By default, the folder is ./ and the port is 8080 (or process.env.PORT if defined).
+By default, pjs will listen on the port 8080 (or process.env.PORT) and read the current folder. You can change this settings in `http://localhost/_/`, take a look at the `usage documentation`.
 
-Inside the folder where pjs is listening you can prototype any node.js applications thanks to the `.pjs` files (see examples).
+Inside the folder where pjs is reading you can prototype any node.js applications thanks to the `.pjs` files (see examples below).
 
 ## Examples
 
@@ -20,8 +20,8 @@ To launch the examples on your computer, install first pjs-cli and then :
 
 ```bash
 git clone https://github.com/Atinux/pjs.git
-cd pjs/
-pjs examples/
+cd pjs/examples/
+pjs
 ```
 
 You can visit `http://localhost:8080` too run all the examples presented below.
