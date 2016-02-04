@@ -1,5 +1,5 @@
 # Summary
 
 * [Installation](docs/installation.md)
-* Introduction
+* [Introduction](docs/introduction.md)
 
