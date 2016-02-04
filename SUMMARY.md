@@ -1,4 +1,4 @@
 # Summary
 
-* [Instalation](docs/instalation.md)
+* [Installation](docs/Installation.md)
 
