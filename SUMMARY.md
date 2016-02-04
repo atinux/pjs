@@ -2,6 +2,6 @@
 
 * [Installation](docs/installation.md)
 * [Introduction](docs/introduction.md)
-* Examples
+* [Examples](docs/examples/introduction.md)
    * Hello PJS
 
