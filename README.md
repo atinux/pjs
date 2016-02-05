@@ -246,6 +246,7 @@ The idea was born after reading this article by VJEUX: http://blog.vjeux.com/201
 - Using daemonize for `pjs start` and `pjs stop` or only spawn forever start bin/pjs ?
 - Documentation with gitbook
 - Using `pjs` only for strating (port and folder is in config file, default to ./), port can be confiured via process.env.PORT
+- Handling 404, 500 errors via templates (404.pjs, 500.pjs) if exists, use: app.use(function(err, req, res, next) {...});
 - Stock sessions/ for file-session in .sessions/ + 403 urls when trying to access
 - Config WinstonJS log system
 - Add tests + jslint (start server on test/pjs/ + call request and check source code) + Travis + Codecov.io + Bithound (dependencies + code) + IssueStats.com
