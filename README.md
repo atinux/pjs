@@ -1,4 +1,4 @@
-![pajamas-js-logo](https://cloud.githubusercontent.com/assets/904724/12851043/15c3e484-cc28-11e5-98e0-e40c8f24e7bc.png)
+![pajamas-js-logo](https://cloud.githubusercontent.com/assets/904724/12858469/ac44034e-cc50-11e5-8858-ad7a7b6b173a.png)
 
 *Logo made by [Yana Smirnova](https://dribbble.com/JSmirnova)*
 
