@@ -243,7 +243,7 @@ As said before, PJS is mostly for quick prototyping and has no use case for prod
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
 
 ## Todo
-- Using daemonize for `pjs start` and `pjs stop`
+- Using daemonize for `pjs start` and `pjs stop` or only spawn forever start bin/pjs ?
 - Documentation with gitbook
 - Using `pjs` only for strating (port and folder is in config file, default to ./), port can be confiured via process.env.PORT
 - Stock sessions/ for file-session in .sessions/ + 403 urls when trying to access
