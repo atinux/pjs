@@ -1,6 +1,6 @@
 {
   "name": "pjs-cli",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "PJS = PHP Workflow with Node.js (it's king of an Apache for Node.js)",
   "preferGlobal": true,
   "main": "bin/pjs",
@@ -15,10 +15,11 @@
     "url": "git+https://github.com/Atinux/pjs.git"
   },
   "keywords": [
+    "pajamas",
+    "pajamas.js",
     "pjs",
-    "js",
     "ejs",
-    "worflow",
+    "workflow",
     "prototype",
     "prototyping"
   ],
