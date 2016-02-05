@@ -14,6 +14,12 @@ By default, pjs will listen on the port 8080 (or process.env.PORT) and read the 
 
 Inside the folder where pjs is reading you can prototype any node.js applications thanks to the `.pjs` files (see examples below).
 
+For using pjs as a daemon, your can use these commands:
+- `pjs start` (start pjs as a daemon)
+- `pjs stop`
+- `pjs restart`
+- `pjs status`
+
 ## Examples
 
 To launch the examples on your computer, install first pjs-cli and then :

@@ -1,29 +1,20 @@
-#!/usr/bin/env node
-
-var program = require('commander'),
-    fs = require('fs'),
+var fs = require('fs'),
     path = require('path'),
     recluster = require('recluster'),
-    _ = require('lodash'),
-    dir,
-    lstat;
+    _ = require('lodash');
 
-program.usage('[dir] [options]')
-program.option('-p, --port <port>', 'Port where the PJS will listen')
-program.parse(process.argv);
-dir = program.args[0] || './';
-try { lstat = fs.lstatSync(dir) } catch (e) { lstat = null; }
-if (!lstat || !lstat.isDirectory())
-  return console.log(folder + ' is not a directory.');
-
-var args = [ dir ];
-if (program.port) args.push(program.port);
-var cluster = recluster(path.join(__dirname, '../lib/server.js'), { args: args, timeout: 3, backoff: 0 }); // workers: 10
-cluster.run();
-
+var cluster = recluster(path.resolve(__dirname, '../../lib/server.js'), { timeout: 3, backoff: 0 }); // workers: 10
 var reloading = false;
+var terminating = false;
 var pings = {};
-var reloadCluster = function () {
+var interval;
+
+// Create .pjs folder
+try { fs.mkdirSync(path.resolve(process.cwd(), '.pjs')); } catch(e) { if ( e.code != 'EEXIST' ) throw e; }
+
+// TODO: use winston for logging in path.resolve(process.cwd(), '.pjs/app.log')
+
+function reloadCluster() {
   if (reloading) return;
   reloading = true;
   cluster.reload(function () {
@@ -32,7 +23,19 @@ var reloadCluster = function () {
     listenWorkers();
   });
 };
-var listenWorkers = function () {
+function terminateCluster() {
+  if (terminating) return;
+  terminating = true;
+  console.log('Terminating cluster...');
+  setTimeout(function () {
+    clearInterval(interval);
+    // cluster.terminate(function () {
+      // console.log('Cluster terminated.');
+      process.exit();
+    // });
+  }, 1000);
+};
+function listenWorkers() {
   console.log('Nb workers:', cluster.workers().length, 'Active:', cluster.activeWorkers().length);
   cluster.workers().forEach(function (worker) {
     if (worker._rc_isReplaced) return;
@@ -41,9 +44,10 @@ var listenWorkers = function () {
     worker.on('message', function (msg) {
       // console.log('New message from worker ['+worker._rc_wid+']');
       // console.log(msg);
-      if (msg && msg.cluster_cmd && msg.cluster_cmd === 'reload') {
-        reloadCluster();
-      }
+      if (msg && msg.cluster_cmd && msg.cluster_cmd === 'reload')
+        return reloadCluster();
+      if (msg && msg.cluster_cmd && msg.cluster_cmd === 'terminate')
+        return terminateCluster();
       if (msg && msg.ping) {
         pings[worker._rc_wid] = Date.now();
       }
@@ -55,7 +59,7 @@ var listenWorkers = function () {
     worker._listening = true;
   });
 };
-var findWorker = function (worderId) {
+function findWorker(worderId) {
   var _worker = null;
   cluster.workers().forEach(function (worker) {
     if (String(worker._rc_wid) === String(worderId))
@@ -63,7 +67,7 @@ var findWorker = function (worderId) {
   });
   return _worker;
 };
-var checkTimeoutWorker = function () {
+function checkTimeoutWorker() {
   // console.log(pings, cluster.workers().length, cluster.activeWorkers().length);
   if (_.values(pings).indexOf('reload') !== -1)
     return listenWorkers();
@@ -78,5 +82,6 @@ var checkTimeoutWorker = function () {
   }
 };
 
+cluster.run();
 listenWorkers();
-setInterval(checkTimeoutWorker, 2000);
+interval = setInterval(checkTimeoutWorker, 2000);

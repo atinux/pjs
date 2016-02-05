@@ -34,4 +34,4 @@ node_modules
 
 # Config
 config.json
-sessions/
+.pjs

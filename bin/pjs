@@ -1,8 +1,48 @@
 #!/usr/bin/env node
 
-require('commander')
-.version(require('../package').version)
-.usage('<command> [options]')
-.command('start [dir] [options]', 'Launch pjs with the given folder (default ./)', { isDefault: true })
-// .command('forever [folder]', 'Launch pjs with forever as a daemon (useful for web-server)')
-.parse(process.argv);
+var program = require('commander');
+
+// Version
+program.version(require('../package').version);
+// Usage
+program.usage('[command]');
+
+// pjs
+program
+.command('dev')
+.description('Launch PJS in the current folder')
+.action(function () { require('./lib/start-pjs.js'); });
+if (!process.argv[2]) { process.argv[2] = 'dev'; }
+
+var daemon = require('./lib/daemon.js');
+// pjs start
+program
+.command('start')
+.description('Launch pjs in daemon mode')
+.action(daemon.start);
+
+// pjs stop
+program
+.command('stop')
+.description('Stop pjs daemon')
+.action(daemon.stop);
+
+// pjs stop
+program
+.command('restart')
+.description('Restart pjs daemon')
+.action(daemon.restart);
+
+// pjs status
+program
+.command('status')
+.description('Get the pjs daemon status')
+.action(daemon.status);
+
+// Launch
+program.parse(process.argv);
+
+var commands = ['dev', 'start', 'stop', 'restart', 'status'];
+if (commands.indexOf(process.argv[2]) === -1) {
+  program.outputHelp();
+}
