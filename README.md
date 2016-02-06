@@ -1,3 +1,4 @@
+The comfortable way to write node.js apps.
 
 [![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
 
