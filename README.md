@@ -1,6 +1,3 @@
-![pajamas-js-logo](https://cloud.githubusercontent.com/assets/904724/12861525/4cd78f66-cc64-11e5-8dbd-0cd7bbcbc937.png)
-
-*Logo made by [Yana Smirnova](https://dribbble.com/JSmirnova)*
 
 [![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
 
