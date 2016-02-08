@@ -254,7 +254,8 @@ The idea was born after reading this article by VJEUX: http://blog.vjeux.com/201
 - Config WinstonJS log system
 - ./.pjs/config.json have a lastUpdate field to know on the ping when the recluster has reloaded
 - Add tests + jslint (start server on test/pjs/ + call request and check source code) + Travis + Codecov.io + Bithound (dependencies + code) + IssueStats.com
-- Documentation with gitbook
+- Sticky Sessions sur recluster (+ socket.io)
+- Documentation with gitbook ou hexo
 - Central UI (only links to the modules): url/_ + Add basic auth on _ and _/*
 - UI for configuring PJS (url/_/config): Authentification, Server (default port, proxy, SSL, folder for public views + for each vhost), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (Winstog log files, Sentry config, etc.)
 - UI for configuring the Routes (url/_/routes): Router /api/users/:id -> render file api/users.pjs + add req.params inside REQ + FORM
