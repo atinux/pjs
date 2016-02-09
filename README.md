@@ -1,6 +1,9 @@
-![pajamas-js-logo2](https://cloud.githubusercontent.com/assets/904724/12921222/14231c0c-cf44-11e5-8093-572e0d0f6f7f.png)
+![pajamas](https://cloud.githubusercontent.com/assets/904724/12923523/f564de7c-cf4d-11e5-9a59-33e17c8c43cc.png)
 
-[![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
+<p align="center">
+<a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs-cli.svg"/></a> <a href="https://travis-ci.org/Atinux/pjs"><img alt="Build Status" src="https://travis-ci.org/Atinux/pjs.svg?branch=master"/></a> 
+<a href="https://codecov.io/github/Atinux/pjs?branch=master"><img alt="Code Coverage" src="https://codecov.io/github/Atinux/pjs/coverage.svg?branch=master"/></a> <a href="https://www.bithound.io/github/Atinux/pjs"><img alt="Code Review" src="https://www.bithound.io/github/Atinux/pjs/badges/code.svg"/></a>
+</p>
 
 ## Installation
 
