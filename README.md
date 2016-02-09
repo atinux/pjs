@@ -1,4 +1,6 @@
-![pajamas](https://cloud.githubusercontent.com/assets/904724/12923523/f564de7c-cf4d-11e5-9a59-33e17c8c43cc.png)
+<p align="center">
+<img alt="Pajamas (PJS) - An easy way to write node.js apps" src="https://cloud.githubusercontent.com/assets/904724/12923523/f564de7c-cf4d-11e5-9a59-33e17c8c43cc.png"/>
+</p>
 
 <p align="center">
 <a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs-cli.svg"/></a> <a href="https://travis-ci.org/Atinux/pjs"><img alt="Build Status" src="https://travis-ci.org/Atinux/pjs.svg?branch=master"/></a> 
