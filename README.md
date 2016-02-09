@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="Pajamas (PJS) - An easy way to write node.js apps" src="https://cloud.githubusercontent.com/assets/904724/12923523/f564de7c-cf4d-11e5-9a59-33e17c8c43cc.png"/>
+<img alt="Pajamas (PJS) - An easy way to write node.js apps" src="https://cloud.githubusercontent.com/assets/904724/12924080/4cde4740-cf50-11e5-89dd-ed3dc51da3b9.png"/>
 </p>
 
 <p align="center">
