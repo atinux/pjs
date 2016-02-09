@@ -1,4 +1,4 @@
-The comfortable way to write node.js apps.
+![pajamas-js-logo2](https://cloud.githubusercontent.com/assets/904724/12921222/14231c0c-cf44-11e5-8093-572e0d0f6f7f.png)
 
 [![npm version](https://badge.fury.io/js/pjs-cli.svg)](https://badge.fury.io/js/pjs-cli)
 
