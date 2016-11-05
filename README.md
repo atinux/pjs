@@ -3,8 +3,7 @@
 </p>
 
 <p align="center">
-<a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs-cli.svg"/></a> <a href="https://travis-ci.org/Atinux/pjs"><img alt="Build Status" src="https://travis-ci.org/Atinux/pjs.svg?branch=master"/></a> 
-<a href="https://codecov.io/github/Atinux/pjs?branch=master"><img alt="Code Coverage" src="https://codecov.io/github/Atinux/pjs/coverage.svg?branch=master"/></a> <a href="https://www.bithound.io/github/Atinux/pjs"><img alt="Code Review" src="https://www.bithound.io/github/Atinux/pjs/badges/code.svg"/></a>
+<a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs/status.svg"/></a> <a href="https://travis-ci.org/Atinux/pjs"><img alt="Build Status" src="https://travis-ci.org/Atinux/pjs.svg?branch=master"/></a> 
 </p>
 
 ## Installation
@@ -252,19 +251,3 @@ Example:
 As said before, PJS is mostly for quick prototyping and has no use case for production.
 
 The idea was born after reading this article by VJEUX: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
-
-## Todo
-- Trying vhost for rendering different folders (maybe not using res.render instead with a vhost middleware?)
-- Handling 404, 500 errors via templates (404.pjs, 500.pjs) if exists, use: app.use(function(err, req, res, next) {...});
-- Config WinstonJS log system
-- ./.pjs/config.json have a lastUpdate field to know on the ping when the recluster has reloaded
-- Add tests + jslint (start server on test/pjs/ + call request and check source code) + Travis + Codecov.io + Bithound (dependencies + code) + IssueStats.com
-- Sticky Sessions sur recluster (+ socket.io)
-- Documentation with gitbook ou hexo
-- Central UI (only links to the modules): url/_ + Add basic auth on _ and _/*
-- UI for configuring PJS (url/_/config): Authentification, Server (default port, proxy, SSL, folder for public views + for each vhost), Upload (nbFiles, fileSize, folder), Sessions (Secret key, Store (Mongo/Redis/Memory/Files + config), Sockets (enable/disable + socket config file), Errors Handler (Winstog log files, Sentry config, etc.)
-- UI for configuring the Routes (url/_/routes): Router /api/users/:id -> render file api/users.pjs + add req.params inside REQ + FORM
-- UI for configuring the Node modules (url/_/npm): Listing installed modules, Install/Update/Remove (http://npmsearch.com/query?q=pjs&fields=name,version,repository,description,author)
-- UI for viewing/searching the logs (url/_/logs)
-- Finding a way of using the sockets and configuring them server-side (path of the file to use) + try/catch to avoid server error on startup
-- Video of presentation
