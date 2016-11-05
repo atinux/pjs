@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs/status.svg"/></a> <a href="https://travis-ci.org/Atinux/pjs"><img alt="Build Status" src="https://travis-ci.org/Atinux/pjs.svg?branch=master"/></a> 
+<a href="https://badge.fury.io/js/pjs-cli"><img alt="npm version" src="https://badge.fury.io/js/pjs-cli.svg"/></a> <a href="https://david-dm.org/Atinux/pjs"><img alt="Dependencies" src="https://david-dm.org/Atinux/pjs/status.svg"/></a>
 </p>
 
 ## Installation
