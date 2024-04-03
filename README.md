@@ -43,7 +43,7 @@ It's 90% of EJS templates with a `done()` method for making every asynchronous o
 ## Example 1 - Basis
 
 Let's say that I have a file name `hello.pjs` in my current folder:
-```html
+```ejs
 <% var foo = 'PJS'; %>
 Hello <%= foo %>!
 ```
@@ -59,7 +59,7 @@ Result: Hello PJS!
 What about if we want something a little bit more asynchronous?
 
 File `async.pjs`:
-```html
+```ejs
 <%
 var request = require('request'),
     name;
@@ -83,7 +83,7 @@ Notice the `done();` method, it is important here for PJS to wait until the requ
 You may also want to include other .pjs files, that's why you can use the `<% include your_file.pjs %>` directly in your templates.
 
 File `include.pjs`:
-```html
+```ejs
 <p>I'm including hello.pjs</p>
 <%- include hello.pjs %>
 ```
@@ -101,7 +101,7 @@ Hello bar!
 Inside each .pjs file, you have access of the `REQUEST` variable. It contains some of the properties listed from Express (http://expressjs.com/en/4x/api.html#req);
 
 File: `request.pjs`
-```html
+```ejs
 <% if (REQUEST.method === 'POST') { %>
   <p><b>New todo:</b> <%= REQUEST.body.todo %></p>
 <% } %>
@@ -150,7 +150,7 @@ Sometimes you want to send back a custom status code or even a custom header. Yo
 </pre>
 
 File `response.pjs`:
-```html
+```ejs
 <%
 RESPONSE.header('Custom', 'Hi!');
 RESPONSE.status(404);
@@ -168,7 +168,7 @@ In your PJS templates, you have also access to `SESSION`. This is useful for cre
 Here a Todo app with the use of the sessions with PJS.
 
 File `session.pjs`:
-```html
+```ejs
 <%
 SESSION.todos = SESSION.todos || [];
 if (REQUEST.method === 'POST' && REQUEST.body.todo) {
@@ -201,7 +201,7 @@ PJS use [session-file-store](https://github.com/valery-barysok/session-file-stor
 For sending back a JSON object, simply display it with <%- yourJSON %>.
 
 File `json.pjs`:
-```html
+```ejs
 <%- FORM %>
 ```
 
@@ -218,7 +218,7 @@ PJS let you upload files via [multer](https://github.com/expressjs/multer). The 
 You can access the files via `REQUEST.files`. Important, the form as to be multipart (`multipart/form-data`).
 
 File `files.pjs`:
-```html
+```ejs
 <% if (METHOD === 'POST' && REQ.files) { %>
 <pre><%- JSON.stringify(REQ.files, undefined, 2) %></pre>
 <% } %>
